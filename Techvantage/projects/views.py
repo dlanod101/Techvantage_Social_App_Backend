@@ -24,16 +24,17 @@ class ProjectList(APIView):
 
         category = request.query_params.get("category", "")
 
-        tag = request.query_params.get("tag", "")
+        contributors = request.query_params.get("contributors", "")
 
-        if title:
-            project = Project.objects.filter(title__icontains=title)
         
         if category:
             project = Project.objects.filter(category__icontains=category)
 
         if tag:
             project = Project.objects.filter(tag__icontains=tag)
+
+        if contributors:
+            project = Project.objects.filter(contributors__icontains=contributors)
         
         else:
             project = Project.objects.all()
