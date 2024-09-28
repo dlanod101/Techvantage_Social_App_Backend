@@ -20,7 +20,7 @@ class ProjectRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
 class ProjectList(APIView):
     def get(self, request, format=None):
         #Gets title from the query parameter
-        title = request.query_params.get("title", "")
+        tag = request.query_params.get("tag", "")
 
         category = request.query_params.get("category", "")
 
